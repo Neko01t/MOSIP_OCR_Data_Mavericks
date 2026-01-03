@@ -111,11 +111,13 @@ The OCR engine automatically decides the best approach:
 
 ## Screenshots
 
-![Extraction Panel][./Screenshot/Extraction-panel.png]
-![Verification Panel][./Screenshot/Verification-Panel.png]
+| Extraction Panel                                       | Verification Panel                                         |
+| ------------------------------------------------------ | ---------------------------------------------------------- |
+| ![Extraction Panel](./Screenshot/Extraction-panel.png) | ![Verification Panel](./Screenshot/Verification-Panel.png) |
 
-![Extraction Test][./Screenshot/Extraction-test.png]
-![Verification Test][./Screenshot/Verification-test.png]
+| Extraction Test                                      | Verification Test                                        |
+| ---------------------------------------------------- | -------------------------------------------------------- |
+| ![Extraction Test](./Screenshot/Extraction-test.png) | ![Verification Test](./Screenshot/Verification-test.png) |
 
 ---
 
