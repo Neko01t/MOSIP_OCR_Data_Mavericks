@@ -150,3 +150,9 @@ The OCR engine automatically decides the best approach:
 - Tesseract.js
 - TrOCR (Xenova Transformers)
 - ONNX Runtime
+
+---
+
+### License
+
+MIT License
