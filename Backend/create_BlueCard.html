@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Test ID Card — Dummy</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root{
+      --card-w: 880px;
+      --card-h: 540px;
+      --accent:#083c6b;
+      --muted:#666;
+      --bg:#f3f6fb;
+    }
+    body{
+      font-family: Inter, Arial, sans-serif;
+      background: linear-gradient(180deg,#e9f0fb,#ffffff 40%);
+      display:flex;
+      gap:24px;
+      padding:40px;
+      align-items:flex-start;
+      justify-content:center;
+    }
+
+    .controls{
+      width:320px;
+      background:white;
+      border-radius:10px;
+      padding:16px;
+      box-shadow:0 6px 18px rgba(18,38,63,0.08);
+    }
+    .controls h3{margin:0 0 8px 0;}
+    .controls p{color:var(--muted);font-size:13px;margin:0 0 12px 0}
+
+    .btn{
+      display:inline-block;padding:10px 12px;border-radius:8px;
+      background:var(--accent);color:white;text-decoration:none;border:none;
+      cursor:pointer;font-weight:600;font-size:14px;
+    }
+
+    /* ID card */
+    .id-wrap{
+      width:var(--card-w);
+      height:var(--card-h);
+      border-radius:16px;
+      background:linear-gradient(90deg,#ffffff,#f7fbff);
+      box-shadow:0 10px 30px rgba(8,60,107,0.12);
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      overflow:hidden;
+      position:relative;
+      border:1px solid rgba(8,60,107,0.06);
+    }
+
+    .left{
+      padding:22px;
+      background:linear-gradient(180deg,#0a3b6a,#115089);
+      color:white;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      align-items:center;
+    }
+
+    .photo{
+      width:220px;height:240px;border-radius:6px;background:linear-gradient(180deg,#eef3fb,#cfe0f8);
+      display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);
+      overflow:hidden;border:4px solid rgba(255,255,255,0.12);
+    }
+
+    .logo{
+      width:100%;display:flex;justify-content:center;margin-top:6px;
+      transform:translateY(8px);
+    }
+    .logo .badge{
+      background:white;color:var(--accent);padding:6px 12px;border-radius:8px;font-weight:700;
+      box-shadow:0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    .left .small{font-size:13px;color:rgba(255,255,255,0.9);opacity:0.95}
+    .left .id-type{font-size:20px;font-weight:700;margin-top:8px}
+
+    .right{
+      padding:22px 28px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      color:var(--accent);
+    }
+
+    .field-row{display:flex;gap:18px;align-items:center;}
+    .field-label{width:160px;color:var(--muted);font-size:13px}
+    .field-value{
+      flex:1;
+      font-size:18px;
+      font-weight:700;
+      padding:6px 8px;
+      border-radius:6px;
+      background:rgba(15,55,100,0.03);
+    }
+
+    .field-value[contenteditable="true"]{outline:2px dashed rgba(8,60,107,0.06)}
+    .note{font-size:12px;color:var(--muted);margin-top:8px}
+
+    /* small footer */
+    .footer{
+      margin-top:auto;
+      display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px;
+    }
+
+    /* bounding boxes visualization toggle class (optional) */
+    .show-boxes [data-field]{
+      position:relative;
+    }
+    .show-boxes [data-field]::after{
+      content:attr(data-field);
+      position:absolute;
+      top:-14px;left:0;
+      font-size:10px;color:#064; background:#fff;padding:1px 6px;border-radius:4px;border:1px solid #eee;
+      box-shadow:0 3px 8px rgba(0,0,0,0.06);
+      opacity:0.9;
+    }
+
+    /* responsive */
+    @media(max-width:1000px){
+      body{flex-direction:column;align-items:center}
+      .controls{order:2}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="id-wrap" id="idCard">
+    <div class="left">
+      <div class="photo" id="photoBlock" data-field="photo">PHOTO</div>
+      <div class="logo"><div class="badge">MOSIP TEST</div></div>
+      <div style="margin-top:12px;text-align:center">
+        <div class="small">Organization</div>
+        <div class="id-type" data-field="org">Digital Identity Lab</div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="font-size:14px;color:var(--muted)">ID CARD — SAMPLE</div>
+        <div style="font-size:12px;color:var(--muted)">Valid Thru: <span data-field="valid_thru">31-12-2030</span></div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-label">Full Name</div>
+        <div class="field-value" contenteditable="true" data-field="name">ROHAN SHARMA</div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-label">Date of Birth</div>
+        <div class="field-value" contenteditable="true" data-field="dob">12/06/2003</div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-label">ID Number</div>
+        <div class="field-value" contenteditable="true" data-field="id_number">AAZP-99887766</div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-label">Gender</div>
+        <div class="field-value" contenteditable="true" data-field="gender">Male</div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-label">Address</div>
+        <div class="field-value" contenteditable="true" data-field="address">12, Sample Street, Pune, Maharashtra</div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-label">District</div>
+        <div class="field-value" contenteditable="true" data-field="district">Pune</div>
+      </div>
+
+      <div class="note">Tip: Click any field to edit the dummy text. Fields have <code>data-field</code> attributes for automated mapping.</div>
+
+      <div class="footer">
+        <div>Issued: <span data-field="issued">01-01-2024</span></div>
+        <div style="display:flex;gap:8px">
+          <button class="btn" id="downloadBtn">Download as PNG</button>
+          <button class="btn" id="toggleBoxes" style="background:#2b7a2b">Toggle Field Labels</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <h3>ID Card Builder</h3>
+    <p>Use this panel to quickly change values, or export the card image to test TrOCR models.</p>
+
+    <label style="font-size:13px;color:var(--muted)">Name</label>
+    <input id="inpName" style="width:100%;margin:6px 0 10px 0;padding:8px;border-radius:6px;border:1px solid #eee" value="ROHAN SHARMA">
+
+    <label style="font-size:13px;color:var(--muted)">DOB</label>
+    <input id="inpDob" style="width:100%;margin:6px 0 10px 0;padding:8px;border-radius:6px;border:1px solid #eee" value="12/06/2003">
+
+    <label style="font-size:13px;color:var(--muted)">ID Number</label>
+    <input id="inpId" style="width:100%;margin:6px 0 10px 0;padding:8px;border-radius:6px;border:1px solid #eee" value="AAZP-99887766">
+
+    <label style="font-size:13px;color:var(--muted)">Address</label>
+    <input id="inpAddress" style="width:100%;margin:6px 0 10px 0;padding:8px;border-radius:6px;border:1px solid #eee" value="12, Sample Street, Pune">
+
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button class="btn" id="applyBtn">Apply to Card</button>
+      <button class="btn" id="resetBtn" style="background:#777">Reset</button>
+    </div>
+
+    <hr style="margin:14px 0" />
+    <div style="font-size:13px;color:var(--muted)">Notes:</div>
+    <ul style="font-size:13px;color:#333;padding-left:18px;margin-top:6px">
+      <li>Fields are <strong>contenteditable</strong> — you can edit directly on the card.</li>
+      <li>Exported PNG can be used as input to your TrOCR pipeline.</li>
+      <li>All visible text elements include <code>data-field</code> attributes to help automated mapping.</li>
+    </ul>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    const setField = (name, val) => {
+      const el = document.querySelector('[data-field="'+name+'"]');
+      if(el) el.textContent = val;
+    };
+    const getField = (name) => {
+      const el = document.querySelector('[data-field="'+name+'"]');
+      return el ? el.textContent : '';
+    };
+
+    document.getElementById('applyBtn').addEventListener('click', () => {
+      setField('name', document.getElementById('inpName').value.toUpperCase());
+      setField('dob', document.getElementById('inpDob').value);
+      setField('id_number', document.getElementById('inpId').value);
+      setField('address', document.getElementById('inpAddress').value);
+    });
+
+    document.getElementById('resetBtn').addEventListener('click', ()=> {
+      setField('name','OM SONAWANE');
+      setField('dob','29/04/1823');
+      setField('id_number','AAZP-99887767');
+      setField('address','12, On Street, SambhajiNagar, Maharashtra');
+    });
+
+    document.getElementById('downloadBtn').addEventListener('click', async () => {
+      const el = document.getElementById('idCard');
+      el.style.background = '#ffffff';
+      const canvas = await html2canvas(el, {scale:2, useCORS:true});
+      el.style.background = '';
+      const url = canvas.toDataURL('image/png');
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'sample_id_card.png';
+      a.click();
+    });
+
+    document.getElementById('toggleBoxes').addEventListener('click', () => {
+      document.body.classList.toggle('show-boxes');
+    });
+
+    const syncInputs = () => {
+      document.getElementById('inpName').value = getField('name');
+      document.getElementById('inpDob').value = getField('dob');
+      document.getElementById('inpId').value = getField('id_number');
+      document.getElementById('inpAddress').value = getField('address');
+    };
+    document.querySelectorAll('[contenteditable="true"]').forEach(el=>{
+      el.addEventListener('input', syncInputs);
+    });
+
+    window.addEventListener('load', syncInputs);
+  </script>
+</body>
+</html>

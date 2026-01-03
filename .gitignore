@@ -1,0 +1,46 @@
+# --- System Files ---
+.DS_Store
+Thumbs.db
+*.swp
+*.log
+
+# --- Environment / Secrets (CRITICAL) ---
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# --- Dependencies ---
+node_modules/
+bower_components/
+vendor/
+.venv/
+venv/
+env/
+bin/
+obj/
+
+# --- Build Output ---
+dist/
+build/
+out/
+target/
+*.exe
+*.dll
+*.so
+*.class
+
+# --- Debugging & Coverage ---
+.next/
+.nuxt/
+.cache/
+coverage/
+.nyc_output/
+
+# OCR/AI Models
+Backend/models_cache/
+Backend/*.traineddata
+
+# Temp processing files
+Backend/temp_crops/
