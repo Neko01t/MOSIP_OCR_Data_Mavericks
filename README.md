@@ -1,0 +1,1 @@
+# MOSIP_OCR_Data_Mavericks
