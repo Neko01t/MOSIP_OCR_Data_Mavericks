@@ -26,9 +26,11 @@ The system intelligently switches between **printed OCR** and **AI-based handwri
 ## Architecture Overview
 
 Frontend (React + Vite)
+
 ↓
 
 Backend (Express API)
+
 ↓
 
 Hybrid OCR Engine
