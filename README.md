@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/MOSIP-Hackathon-blue?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Hybrid-OCR-success?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Node.js-Backend-green?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/React-Vite-61DAFB?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Tesseract-TrOCR-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/-MOSIP%20Hackathon-black?logo=github" />
+  <img src="https://img.shields.io/badge/-Hybrid%20OCR-success?logo=google" />
+  <img src="https://img.shields.io/badge/-Node.js%20Backend-339933?logo=node.js&logoColor=white" />
+  <img src="https://img.shields.io/badge/-React%20%2B%20Vite-61DAFB?logo=react&logoColor=black" />
+  <img src="https://img.shields.io/badge/-Tesseract%20%2B%20TrOCR-ff9800?logo=opencv&logoColor=white" />
 </p>
 
 # Hybrid OCR System – MOSIP Hackathon
