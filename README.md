@@ -32,6 +32,7 @@ Backend (Express API)
 ↓
 
 Hybrid OCR Engine
+
 ├── Tesseract.js (Printed Text)
 
 └── TrOCR (Handwritten Text - ONNX)
