@@ -27,10 +27,13 @@ The system intelligently switches between **printed OCR** and **AI-based handwri
 
 Frontend (React + Vite)
 ↓
+
 Backend (Express API)
 ↓
+
 Hybrid OCR Engine
 ├── Tesseract.js (Printed Text)
+
 └── TrOCR (Handwritten Text - ONNX)
 
 ---
